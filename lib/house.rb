@@ -14,4 +14,11 @@ class House
     @rooms << room
   end
 
+  def rooms_from_category(categ)
+    total = @rooms.find_all do |room|
+      room.category == categ
+    end
+    total.count
+  end
+
 end

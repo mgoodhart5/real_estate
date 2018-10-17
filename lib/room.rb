@@ -3,8 +3,8 @@ require 'pry'
 class Room
   attr_reader :area, :category
 
-  def initialize(bedroom, length, width)
+  def initialize(room_kind, length, width)
     @area = length * width
-    @category = :bedroom
+    @category = room_kind
   end
 end
