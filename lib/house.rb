@@ -7,7 +7,6 @@ class House
     @price = price
     @address = address
     @rooms = []
-
   end
 
   def add_room(room)
@@ -19,6 +18,13 @@ class House
       room.category == categ
     end
     total.count
+  end
+
+  def area
+    total = @rooms.collect do |room|
+      room.area
+    end
+    total.sum
   end
 
 end
