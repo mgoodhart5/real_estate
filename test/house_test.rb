@@ -89,6 +89,34 @@ class HouseTest < Minitest::Test
     assert_equal 210.53, house.price_per_square_foot
   end
 
+  def test_it_can_sort_rooms_by_area_even_though_it_already_is
+    #I changed the room_numbers around to show this works
+    house = House.new("$400000", "123 sugar lane")
+    room_2 = Room.new(:bedroom, 10, 13)
+    house.add_room(room_2)
+    room_4 = Room.new(:bedroom, 11, 15)
+    house.add_room(room_4)
+    room_1 = Room.new(:living_room, 25, 15)
+    house.add_room(room_1)
+    room_3 = Room.new(:basement, 30, 41)
+    house.add_room(room_3)
+    assert_equal [room_2, room_4, room_1, room_3], house.rooms_sorted_by_area
+  end
+
+  def test_it_has_a_hash_of_room_accessible_by_category
+    house = House.new("$400000", "123 sugar lane")
+    room_1 = Room.new(:bedroom, 10, 13)
+    house.add_room(room_1)
+    room_2 = Room.new(:bedroom, 11, 15)
+    house.add_room(room_2)
+    room_3 = Room.new(:living_room, 25, 15)
+    house.add_room(room_3)
+    room_4 = Room.new(:basement, 30, 41)
+    house.add_room(room_4)
+    assert_equal [:bedroom, :living_room, :basement], house.rooms_by_category.keys
+    #slightly confused as to what a good test would be for this
+  end
+
 
 
 

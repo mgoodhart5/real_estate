@@ -32,4 +32,14 @@ class House
     sq_ft.round(2)
   end
 
+  def rooms_sorted_by_area
+    @rooms.sort_by { |room| room.area}
+  end
+
+  def rooms_by_category
+    sorted = @rooms.group_by do |room|
+      room.category
+    end
+  end
+
 end
