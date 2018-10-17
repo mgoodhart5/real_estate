@@ -114,10 +114,10 @@ class HouseTest < Minitest::Test
     room_4 = Room.new(:basement, 30, 41)
     house.add_room(room_4)
     assert_equal [:bedroom, :living_room, :basement], house.rooms_by_category.keys
-    #slightly confused as to what a good test would be for this
+    #slightly confused as to what a good test would be for this, would like to talk about it
+    assert_equal 2, house.rooms_by_category[:bedroom].count
+    assert_equal 1, house.rooms_by_category[:basement].count
+    assert_equal 1, house.rooms_by_category[:living_room].count
   end
-
-
-
 
 end

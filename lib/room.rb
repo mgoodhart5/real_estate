@@ -7,4 +7,5 @@ class Room
     @area = length * width
     @category = room_kind
   end
+  
 end
