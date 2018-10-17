@@ -76,6 +76,20 @@ class HouseTest < Minitest::Test
     assert_equal 1900, house.area
   end
 
+  def test_it_has_a_price_per_square_foot
+    house = House.new("$400000", "123 sugar lane")
+    room_1 = Room.new(:bedroom, 10, 13)
+    house.add_room(room_1)
+    room_2 = Room.new(:bedroom, 11, 15)
+    house.add_room(room_2)
+    room_3 = Room.new(:living_room, 25, 15)
+    house.add_room(room_3)
+    room_4 = Room.new(:basement, 30, 41)
+    house.add_room(room_4)
+    assert_equal 210.53, house.price_per_square_foot
+  end
+
+
 
 
 end

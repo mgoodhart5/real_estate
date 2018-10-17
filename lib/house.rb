@@ -27,4 +27,9 @@ class House
     total.sum
   end
 
+  def price_per_square_foot
+    sq_ft = @price.gsub("$", "").to_f/ area
+    sq_ft.round(2)
+  end
+
 end
